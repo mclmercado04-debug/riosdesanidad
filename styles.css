@@ -1,0 +1,790 @@
+/* ==============================
+   VARIABLES
+============================== */
+:root {
+  --primary-color: #2C6E91;
+  --secondary-color: #FFD700;
+  --accent-color: #FF6B6B;
+  --dark-text: #333;
+  --light-text: #f9f9f9;
+  --bg-light: #F9FAFB;
+  --transition: all 0.3s ease-in-out;
+  --radius: 12px;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ==============================
+   RESET
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-text);
+  background-color: var(--bg-light);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: var(--transition);
+}
+
+ul {
+  list-style: none;
+}
+
+/* ==============================
+   HEADER
+============================== */
+.header {
+  background: #fff;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 125px;
+}
+
+.menu {
+  display: flex;
+  gap: 3.5rem;
+}
+
+.menu-link {
+  font-weight: bold;
+  color: var(--dark-text);
+}
+
+.menu-link:hover {
+  color: var(--primary-color);
+}
+
+/* Menú móvil */
+.menu-btn {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.menu-btn span,
+.menu-btn span::before,
+.menu-btn span::after {
+  content: "";
+  height: 3px;
+  width: 25px;
+  background: var(--dark-text);
+  margin: 5px 0;
+  display: block;
+  transition: var(--transition);
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    
+    /* CAMBIO CLAVE: Usamos transform para deslizar el menú */
+    transform: translateX(100%);
+  }
+
+  #menu-toggle:checked ~ .menu {
+    /* CAMBIO CLAVE: Deslizamos el menú a su posición original */
+    transform: translateX(0);
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .menu-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+  }
+
+  #menu-toggle:checked ~ .menu-overlay {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ==============================
+   EVENT BANNER
+============================== */
+.event-banner {
+  background: #007AA6;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+.event-banner a {
+  color: var(--secondary-color);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ==============================
+   HERO
+============================== */
+.hero {
+  background: #00B7FA;
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-buttons {
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius);
+  background: #007AA6;
+  color: #fff;
+  border: 2px solid #fff;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--accent-color);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  margin-left: 1rem;
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: var(--primary-color);
+}
+
+/* ==============================
+   VERSE
+============================== */
+.verse-banner {
+  background: #007AA6;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+/* ==============================
+   ABOUT
+============================== */
+.about {
+  /* Establece el contenedor como una cuadrícula CSS (CSS Grid) */
+  display: grid; 
+  /* Define las columnas. Crea tantas como quepan, con un ancho mínimo de 300px. */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  /* Agrega un espacio de 2rem entre las filas y columnas. */
+  gap: 2rem; 
+  /* Añade un espacio interno (padding) de 4rem arriba y abajo, y 2rem a la izquierda y derecha. */
+  padding: 4rem 2rem; 
+  /* Alinea los elementos de la cuadrícula verticalmente al centro. */
+  align-items: center; 
+  
+  /* NUEVOS AJUSTES PARA CENTRAR EL CONTENEDOR */
+  max-width: 1200px; /* Limita el ancho máximo del contenedor para que no se estire demasiado en pantallas grandes. */
+  margin: 0 auto; /* Centra el contenedor horizontalmente en la página. '0' para el margen vertical y 'auto' para el horizontal. */
+}
+
+.about h2 {
+  /* Centra el texto del título. */
+  text-align: center;
+  /* Agrega un espacio en la parte inferior de 0.5rem. */
+  margin-bottom: 0.5rem; 
+  /* Establece el color del título usando la variable principal. */
+  color: var(--primary-color);
+}
+
+.about p {
+  /* Centra el texto del párrafo. */
+  text-align: center;
+  /* Agrega un espacio en la parte inferior de 0.2rem. */
+  margin-bottom: 0.2rem;
+  /* Pone el texto en negrita. */
+  font-weight: bold;
+}
+
+.features {
+  /* Agrega un espacio superior de 5rem al contenedor de las características. */
+  margin-top: 5rem;
+  /* Establece el contenedor de características como una cuadrícula CSS. */
+  display: grid; 
+  /* Define las columnas, permitiendo que se ajusten y tengan un tamaño mínimo de 150px. */
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+  /* Agrega un espacio de 1rem entre las tarjetas. */
+  gap: 1rem;
+}
+
+.feature {
+  /* Establece el fondo de la tarjeta en blanco. */
+  background: #fff; 
+  /* Agrega un espacio interno de 1rem. */
+  padding: 1rem; 
+  /* Redondea las esquinas de la tarjeta. */
+  border-radius: var(--radius);
+  /* Centra el texto y los iconos. */
+  text-align: center;
+  /* Aplica una sombra a la tarjeta. */
+  box-shadow: var(--shadow); 
+  /* Agrega una transición suave a los cambios de estilo. */
+  transition: var(--transition);
+}
+
+.feature:hover {
+  /* Mueve la tarjeta 5px hacia arriba al pasar el mouse. */
+  transform: translateY(-5px);
+}
+
+.feature i {
+  /* Establece el tamaño de la fuente para los iconos a 2rem. */
+  font-size: 2rem;
+  /* Establece el color de los iconos. */
+  color: var(--primary-color);
+  /* Agrega un espacio inferior de 0.5rem debajo de los iconos. */
+  margin-bottom: 0.5rem;
+}
+
+/* ==============================
+   COMMUNITY
+============================== */
+.community {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.community-member {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.community-member:hover {
+  transform: translateY(-5px);
+}
+
+.community-member img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem;
+  border: 3px solid var(--primary-color);
+}
+
+.community-member h3 {
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+/* ==============================
+   SERVICES
+============================== */
+.services {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-item {
+  padding: 2rem;
+  background: var(--bg-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* NUEVOS ESTILOS PARA LOS MENSAJES DE CARGA Y ERROR */
+.services-loading,
+.event-loading,
+.service-error,
+.event-error {
+  text-align: center;
+  font-style: italic;
+  color: #777;
+  padding: 2rem;
+}
+
+.service-error,
+.event-error {
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+/* ==============================
+   EVENTS
+============================== */
+.events {
+  padding: 4rem 2rem;
+  background: var(--bg-light);
+  text-align: center;
+}
+
+.events-container {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.event-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  background: #fff;
+  padding: 1rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.event-item:hover {
+  transform: translateY(-3px);
+}
+
+.event-date {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.event-date .day {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* MODAL EVENTO */
+.event-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 2000;
+}
+
+.event-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  max-width: 600px;
+  width: 90%;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.close-modal {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+/* ==============================
+   CONTACT
+============================== */
+.contact {
+  padding: 4rem 2rem;
+  background: var(--bg-light);
+  /* Usamos Flexbox para centrar todo verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra los elementos horizontalmente */
+  text-align: center; /* Centra el texto dentro de los elementos */
+}
+
+.contact .section-title {
+  margin-bottom: 0.5rem;
+}
+
+.contact .section-subtitle {
+  margin-bottom: 2rem;
+  font-style: italic;
+  color: #777;
+}
+
+.contact-form-container {
+  max-width: 500px;
+  width: 100%;
+  margin-bottom: 2rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-form-container form {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.contact-info-container {
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-info-container h3 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.address p {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.address i {
+  color: var(--primary-color);
+  margin-right: 0.5rem;
+}
+
+.social-links-container {
+  margin-top: 2rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  font-size: 1.2rem;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* ==============================
+   GALLERY
+============================== */
+.gallery {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.carousel-container {
+  margin-top: 2rem;
+  overflow: hidden;
+}
+
+.carousel-container h3 {
+  margin-bottom: 1rem;
+}
+
+.carousel-wrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-wrapper img {
+  flex-shrink: 0;
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.videos-container {
+  margin-top: 4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.videos-container iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius);
+}
+
+/* ==============================
+   DONATION
+============================== */
+.donation {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+
+.donation-form {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  display: grid;
+  gap: 1rem;
+  background: var(--bg-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.donation-form h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.donation-form input {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+
+.card-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ==============================
+   FOOTER
+============================== */
+.footer {
+  background: #222;
+  color: #fff;
+  padding: 2rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.footer h3,
+.footer h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ==============================
+   WHATSAPP FLOAT
+============================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: #fff;
+  font-size: 3rem;
+  padding: 0 auto;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  z-index: 2000;
+  transition: var(--transition);
+  height: 70px;
+  width: 70px;
+  align-items: center;
+  text-align: center;
+}
+
+.whatsapp-float:hover {
+  background: #20b358;
+}
+
+/* ==============================
+   MEJORAS PARA MÓVILES (Adiciones)
+============================== */
+@media (max-width: 480px) {
+    /* Ajustes generales para pantallas muy pequeñas */
+   hero {
+    	backgroundcolor: red;
+   } 
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .about,
+    .services,
+    .events,
+    .contact,
+    .gallery,
+    .donation {
+        padding: 2rem 1rem;
+    }
+
+    /* Ajustes específicos de la sección Hero */
+    .hero h1 {
+        font-size: 1rem;
+    }
+    .hero-buttons {
+        flex-direction: column; 
+    }
+    .hero-buttons .btn {
+        margin: 0.25rem 0; 
+    }
+
+    /* Ajustes para las cuadrículas */
+    .community-grid,
+    .service-list,
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    /* Ajustes para los videos */
+    .videos-container iframe {
+        height: 150px;
+    }
+}

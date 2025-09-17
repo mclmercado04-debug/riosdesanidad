@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C.F.C. Ríos de Sanidad</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="header">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="img/LogoIglesia.png" alt="Ríos de Sanidad">
+      </a>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+      </label>
+      <ul class="menu">
+        <li><a href="#hero" class="menu-link">Inicio</a></li>
+        <li><a href="#about" class="menu-link">Nosotros</a></li>
+        <li><a href="#community" class="menu-link">Comunidad</a></li>
+        <li><a href="#services" class="menu-link">Servicios</a></li>
+        <li><a href="#events" class="menu-link">Eventos</a></li>
+        <li><a href="#contact" class="menu-link">Contacto</a></li>
+        <li><a href="#gallery" class="menu-link">Galería</a></li>
+        <li><a href="#donation" class="menu-link">Donación</a></li>
+      </ul>
+      <div class="menu-overlay"></div>
+    </div>
+  </header>
+
+  <section class="event-banner">
+    <p>Próximo Servicio: Viernes de Familia <br> 19.Sep.25 / 19:00 hrs - <a href="#events">Ver más</a></p>
+  </section>
+
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1>C.F.C. Ríos de Sanidad</h1>
+      <p>Un lugar de encuentro con Dios y con la comunidad</p>
+      <div class="hero-buttons">
+        <a href="#about" class="btn">Conócenos</a>
+        <a href="#contact" class="btn btn-outline">Contáctanos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="verse-banner">
+    <p>
+      "Yo soy el camino, la verdad y la vida; nadie viene al Padre sino por mí." <br>
+      <span>Juan 14:6</span>
+    </p>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-content">
+      <h2>Nuestra Misión</h2>
+      <p>Guiar a las personas a una relación transformadora con Jesucristo.</p>
+      <h2>Visión</h2>
+      <p>Ser una comunidad que refleja el amor de Dios en cada aspecto de la vida.</p>
+      <div class="features">
+        <div class="feature">
+          <i class="fas fa-church"></i>
+          <h3>Adoración</h3>
+          <p>Celebramos juntos la grandeza de Dios.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-hands-helping"></i>
+          <h3>Servicio</h3>
+          <p>Ayudamos a nuestra comunidad con amor.</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-book"></i>
+          <h3>Enseñanza</h3>
+          <p>Estudiamos la palabra para crecer en fe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="community" class="community">
+    <h2>Nuestra Comunidad</h2>
+    <div class="community-grid">
+      <div class="community-member">
+        <img src="img/PastorEzequiel.png" alt="Foto del Pastor">
+        <h3>Pastor</h3>
+        <p>Un corazón dedicado a guiar a la comunidad en la fe y el amor de Dios.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/member-secretary.jpg" alt="Foto de la Secretaria">
+        <h3>Secretaria</h3>
+        <p>Organiza la vida de la iglesia y se asegura de que todo funcione sin problemas.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/member-treasurer.jpg" alt="Foto del Tesorero">
+        <h3>Tesorero</h3>
+        <p>Administra los recursos para apoyar la misión y las necesidades de la iglesia.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/EventosBrillet.png" alt="Foto de Eventos Especiales">
+        <h3>Eventos Especiales</h3>
+        <p>Planea y coordina actividades para fortalecer la unidad y la fe en la comunidad.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/member-construction.jpg" alt="Foto de Proconstrucción">
+        <h3>Proconstrucción</h3>
+        <p>Supervisa los proyectos para mejorar y expandir nuestras instalaciones.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/MultimediaMoises.png" alt="Foto de Multimedia">
+        <h3>Multimedia</h3>
+        <p>Asegura que el mensaje de la iglesia llegue a todos a través de la tecnología.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/member-kitchen.jpg" alt="Foto de Cocina">
+        <h3>Cocina</h3>
+        <p>Sirve con amor a la comunidad con comida en eventos y reuniones especiales.</p>
+      </div>
+      <div class="community-member">
+        <img src="img/member-usher.jpg" alt="Foto de Ujier">
+        <h3>Ujier</h3>
+        <p>Recibe a los visitantes con una sonrisa y ayuda a mantener el orden en los servicios.</p>
+      </div>
+    </div>
+  </section>
+  
+  ---
+
+  <section id="services" class="services">
+    <h2>Servicios Semanales</h2>
+    <div id="services-container" class="service-list">
+      <div class="services-loading">Cargando servicios...</div>
+    </div>
+  </section>
+
+  ---
+  
+  <section id="events" class="events">
+    <h2>Próximos Eventos</h2>
+    <div id="events-container" class="events-container">
+      <div class="event-loading">Cargando eventos...</div>
+    </div>
+  </section>
+
+
+  ---
+<section id="contact" class="contact">
+    <h2 class="section-title">Contáctanos</h2>
+    <p class="section-subtitle">Estamos para servirte.</p>
+
+    <div class="contact-form-container">
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Tu Nombre" required>
+            <input type="tel" id="phone" name="phone" placeholder="Tu Teléfono" required>
+            <textarea id="message" name="message" rows="5" placeholder="Tu Mensaje" required></textarea>
+            <button type="submit" class="btn">Enviar por WhatsApp</button>
+        </form>
+    </div>
+
+    <div class="contact-info-container">
+        <h3>Información de Contacto</h3>
+        <div class="address">
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle de la Fe #123, Colonia Esperanza, Ciudad</p>
+            <p><i class="fas fa-phone-alt"></i> Teléfono: (123) 456-7890</p>
+            <p><i class="fas fa-envelope"></i> Email: info@iglesiacuerpodecristo.com</p>
+        </div>
+        <div class="social-links-container">
+            <h3>Síguenos en redes sociales</h3>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+  ---
+  
+
+  <section id="gallery" class="gallery">
+    <h2>Galería</h2>
+    <div class="carousel-container services-carousel">
+      <h3>Servicios Semanales</h3>
+      <div class="carousel-wrapper">
+        <img src="img/services-gallery1.jpg" alt="Servicio Semanal 1">
+        <img src="img/services-gallery2.jpg" alt="Servicio Semanal 2">
+        <img src="img/services-gallery3.jpg" alt="Servicio Semanal 3">
+        </div>
+    </div>
+    <div class="carousel-container events-carousel">
+      <h3>Eventos Pasados</h3>
+      <div class="carousel-wrapper">
+        <img src="img/events-gallery1.jpg" alt="Evento Pasado 1">
+        <img src="img/events-gallery2.jpg" alt="Evento Pasado 2">
+        <img src="img/events-gallery3.jpg" alt="Evento Pasado 3">
+        </div>
+    </div>
+    <div class="videos-container">
+      <h3>Videos de Eventos</h3>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+      </div>
+  </section>
+
+  ---
+
+  <section id="donation" class="donation">
+    <h2>Apoya nuestra Misión</h2>
+    <p>Tu donación nos ayuda a seguir sirviendo a nuestra comunidad y a los más necesitados.</p>
+    <div class="donation-options">
+      </div>
+    <form id="donation-form" class="donation-form">
+      <h3>Donación con Tarjeta</h3>
+      <input type="text" id="donor-name" placeholder="Nombre completo" required>
+      <input type="tel" id="donor-phone" placeholder="Teléfono" required>
+      <input type="text" id="card-number" placeholder="Número de tarjeta" required>
+      <div class="card-details">
+        <input type="text" id="expiry-date" placeholder="MM/AA" required>
+        <input type="text" id="cvv" placeholder="CVV" required>
+      </div>
+      <input type="number" id="amount" placeholder="Monto a donar" required>
+      <button type="submit" class="btn">Donar Ahora</button>
+    </form>
+  </section>
+
+  ---
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div>
+        <h3>Iglesia Cristo Rey</h3>
+        <p>Un lugar para crecer en fe y amor.</p>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <p>Domingos 10:00 AM</p>
+        <p>Miércoles 7:00 PM</p>
+      </div>
+      <div>
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#community">Comunidad</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#events">Eventos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+          <li><a href="#gallery">Galería</a></li>
+          <li><a href="#donation">Donación</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Iglesia Cristo Rey. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/521234567890" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</body>
+</html>
